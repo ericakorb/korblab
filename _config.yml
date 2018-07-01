@@ -1,6 +1,7 @@
 
 exclude:
   - "/vendor/"
+  - "/Lab_website/"
   - "Gemfile"
   - "Gemfile.lock"
   - "README.md"
