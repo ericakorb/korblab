@@ -1,6 +1,8 @@
 
 exclude:
   - "/vendor/"
+  - "/Lab_website/"
+  - "/docs/"
   - "Gemfile"
   - "Gemfile.lock"
   - "README.md"
@@ -18,7 +20,7 @@ title: The Korb Lab at the University of Pennsylvania
 subtitle: "Neuroscience and epigenetics"
 # url: "http://luminousrubyist.github.io" # the base hostname & protocol for your site
 # baseurl: "/the/subpath/of/your/site" # Set this value to "" if you want your site to be root
-baseurl: ""
+baseurl: "https://ericakorb.github.io/korblab"
 cover: "/assets/cover.png"
 logo: "/assets/logo.png"
 
