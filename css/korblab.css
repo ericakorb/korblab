@@ -82,6 +82,12 @@ header .navbar-default .navbar-nav li a {
 font header .navbar-default .navbar-nav li a:hover {
   color: #000;
 }
+
+.image p {
+  font-size: 11px;
+  line-height: 13px;
+  padding-top: 8px;
+}
 /*---------------------------------------------
 					Index Start
 -----------------------------------------------*/
@@ -129,15 +135,14 @@ font header .navbar-default .navbar-nav li a:hover {
 /*--
   Research Start
 --*/
-#research-header {
-  background: url("../img/research2.jpg") no-repeat;
-  background-size: cover;
+.header {
   padding-top: 150px;
   padding-bottom: 107px;
   position: relative;
   background-attachment: fixed;
 }
-#research-header:before {
+
+.header:before {
   content: "";
   position: absolute;
   left: 0;
@@ -149,13 +154,14 @@ font header .navbar-default .navbar-nav li a:hover {
   background: linear-gradient(to left, #928dab, #1f1c2c 70%);
   opacity: 0;
 }
-#research-header .block {
+
+.header .block {
   color: #E3E3E4;
   margin: 0 auto;
   padding-left: 90px;
   text-align: center;
 }
-#research-header .block h1 {
+.header .block h1 {
   font-weight: 300;
   font-size: 45px;
   letter-spacing: 6px;
@@ -163,12 +169,18 @@ font header .navbar-default .navbar-nav li a:hover {
   margin-top: 0;
   text-transform: capitalize;
 }
-#research-header .block p {
+.header .block p {
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 1px;
   word-spacing: 3px;
 }
+
+#research-header {
+  background: url("../img/research2.jpg") no-repeat;
+  background-size: cover;
+}
+
 /*--
   Publications Start
 --*/
@@ -298,6 +310,10 @@ font header .navbar-default .navbar-nav li a:hover {
   letter-spacing: 1px;
   word-spacing: 3px;
 }
+
+.epilogo {
+  max-width: 235px;
+}
 /*--
 	intro Start
 --*/
@@ -310,7 +326,7 @@ font header .navbar-default .navbar-nav li a:hover {
   margin: 0;
 }
 #intro .block p {
-  color: #7B7B7B;
+  color: #333333;
   padding-top: 20px;
 }
 #intro .block img {
@@ -439,7 +455,7 @@ font header .navbar-default .navbar-nav li a:hover {
   margin-bottom: 30px;
 }
 #feature p {
-  color: #8d8f92;
+  color: #333333;
   margin-bottom: 20px;
 }
 /*--------- Heading------------*/
