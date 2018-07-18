@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="https://ericakorb.github.io/korblab/css/ionicons.min.css" />
 <link rel="stylesheet" href="https://ericakorb.github.io/korblab/css/animate.css" />
 
+<link rel="shortcut icon" href="https://ericakorb.github.io/korblab/img/favicon.ico" type="image/x-icon">
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
@@ -29,25 +31,30 @@
 
 
     <header>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://ericakorb.github.io/korblab/">
-              <img src="https://ericakorb.github.io/korblab/img/logo.png" alt="Logo">
-            </a>
-          </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header navbar-left pull-left">
+              <a class="navbar-brand" href="https://ericakorb.github.io/korblab/">
+                <img src="https://ericakorb.github.io/korblab/img/logo.png" alt="Logo">
+              </a>
+            </div>
+            <div class="navbar-header navbar-right pull-right">
+              <ul class="nav pull-left">
+                <li class="pull-right"><a href="http://www.med.upenn.edu/"><img src="https://ericakorb.github.io/korblab/img/penn_med.png" class="header-img" alt="Penn Medicine"></a></li>
+              </ul>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#page-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="page-navbar">
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="https://ericakorb.github.io/korblab/">Home</a></li>
                 <li><a href="https://ericakorb.github.io/korblab/research">Research</a></li>
@@ -66,7 +73,7 @@
 
 
         <!-- Slider Start -->
-<section id="research-header">
+<section id="research-header" class="header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -80,7 +87,7 @@
     <!-- Portfolio Start -->
 <section id="section-content">
     <div class="container">
-        <div class="row">
+        <div class="row research-section">
           <div class="col-md-12">
             <div class="block">
               <p>
@@ -89,10 +96,13 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row research-section">
           <div class="col-md-5 col-sm-12">
             <div class="block">
-              <img src="https://ericakorb.github.io/korblab/img/modifications.jpg">
+              <div class="image">
+                <img src="https://ericakorb.github.io/korblab/img/variants.jpg">
+                <p>A neuron transfected with GFP allows us to visualize how it changes in response to environmental cues.</p>
+              </div>
             </div>
           </div><!-- .col-md-5 close -->
           <div class="col-md-7 col-sm-12">
@@ -104,7 +114,7 @@
             </div>
           </div><!-- .col-md-7 close -->
         </div>
-        <div class="row">
+        <div class="row research-section">
           <div class="col-md-7 col-sm-12">
             <div class="block">
               <div class="section-title">
@@ -115,14 +125,20 @@
           </div><!-- .col-md-7 close -->
           <div class="col-md-5 col-sm-12">
             <div class="block">
-              <img src="https://ericakorb.github.io/korblab/img/variants.jpg">
+              <div class="image">
+                <img src="https://ericakorb.github.io/korblab/img/modifications.jpg">
+                <p>Genome-wide sequencing shows changes in gene expression in response to  histones modifications and histone variants.</p>
+              </div>
             </div>
           </div><!-- .col-md-5 close -->
         </div>
-        <div class="row">
+        <div class="row research-section">
           <div class="col-md-5 col-sm-12">
             <div class="block">
-              <img src="https://ericakorb.github.io/korblab/img/disorders.jpg">
+              <div class="image">
+                <img src="https://ericakorb.github.io/korblab/img/disorders.jpg">
+                <p>We examine chromatin-regulating proteins in the brain to help explain neurodevelopmental disorders.</p>
+              </div>
             </div>
           </div><!-- .col-md-5 close -->
           <div class="col-md-7 col-sm-12">
