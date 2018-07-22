@@ -41,26 +41,6 @@ px      68    160    252    344    436    528    620    712    */
   #features {
     text-align: center;
   }
-  /*--
-	footer Start 
---*/
-  footer .navbar {
-    margin-bottom: 0px;
-    border: 0px;
-    min-height: 40px;
-  }
-  footer .navbar-default {
-    border: 0px;
-    width: 68%;
-  }
-  footer .navbar-default .navbar-nav li a {
-    color: #494949;
-    padding: 10px 10px;
-    font-size: 15px;
-  }
-  footer .navbar-default .navbar-nav li a:hover {
-    color: #000;
-  }
   /*---------------------------------------------
 					Index Close 
 -----------------------------------------------*/
@@ -77,78 +57,10 @@ px      68    160    252    344    436    528    620    712    */
   #slider-work .block p {
     font-size: 15px;
   }
-  /*--
-	portfolio Start 
---*/
-  #portfolio-work .block .portfolio-manu {
-    padding-left: 0px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .img-heading {
-    padding: 5px 0 5px 13px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .img-heading h2 {
-    font-size: 20px;
-    line-height: 25px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .img-heading p {
-    font-size: 11px;
-    line-height: 20px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .overlay {
-    padding-left: 15px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .overlay h2 {
-    padding-top: 30px;
-    padding-bottom: 15px;
-    font-size: 20px;
-    line-height: 25px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .overlay p {
-    font-size: 11px;
-    line-height: 20px;
-    padding-top: 15px;
-  }
-  /*--
-	wrapper Start 
---*/
-  #wrapper-work ul li .items-text {
-    padding-top: 0;
-    padding-left: 25px;
-  }
-  #wrapper-work ul li .items-text h2 {
-    padding-bottom: 10px;
-    padding-top: 40px;
-  }
-  #wrapper-work ul li .items-text p {
-    font-size: 14px;
-    line-height: 20px;
-    padding-right: 30px;
-  }
-  /*--
-	features Start 
---*/
-  #features-work .block ul li {
-    width: 49%;
-  }
   /*---------------------------------------------
 					Work close 
 -----------------------------------------------*/
   /*=============================================*/
-  /*---------------------------------------------
-					contact start 
------------------------------------------------*/
-  #wrapper-contact .block {
-    padding-bottom: 50px;
-  }
-  /*--
-	features-contact Start 
---*/
-  #features-contact .block ul li {
-    width: 49%;
-  }
-  /*---------------------------------------------
-					contact close 
------------------------------------------------*/
   /*------------------*/
 }
 /*		Mobile Layout: 320px.
@@ -200,15 +112,6 @@ px      68    160    252    */
     padding-top: 100px;
     padding-left: 0px;
     width: 100%;
-  }
-  /*--
-	service Start 
---*/
-  #service {
-    padding-top: 100px;
-  }
-  #service .thumbnail {
-    padding-bottom: 70px;
   }
   /*--
 	call-to-action Start 
@@ -309,123 +212,9 @@ px      68    160    252    */
     line-height: 25px;
   }
   /*--
-	portfolio Start 
---*/
-  #portfolio-work .block .portfolio-manu {
-    padding-left: 0px;
-    text-align: center;
-  }
-  #portfolio-work .block .portfolio-manu ul li {
-    padding: 0 8px;
-  }
-  #portfolio-work .block .portfolio-contant ul li {
-    width: 100%;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .img-heading {
-    padding: 5px 0 5px 13px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .img-heading h2 {
-    font-size: 20px;
-    line-height: 25px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .img-heading p {
-    font-size: 11px;
-    line-height: 20px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .overlay {
-    padding-left: 15px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .overlay h2 {
-    padding-top: 65px;
-    padding-bottom: 15px;
-    font-size: 20px;
-    line-height: 25px;
-  }
-  #portfolio-work .block .portfolio-contant ul li a .overlay p {
-    font-size: 11px;
-    line-height: 20px;
-    padding-top: 15px;
-    padding-right: 5px;
-  }
-  /*--
-	wrapper Start 
---*/
-  #wrapper-work ul li {
-    float: none;
-    width: 100%;
-  }
-  #wrapper-work ul li .items-text {
-    padding-left: 15px;
-    padding-top: 30px;
-  }
-  #wrapper-work ul li .items-text h2 {
-    padding-top: 10px;
-    padding-bottom: 15px;
-    font-size: 20px;
-    line-height: 25px;
-  }
-  #wrapper-work ul li .items-text p {
-    font-size: 11px;
-    line-height: 20px;
-    padding-top: 15px;
-  }
-  /*--
-	features Start 
---*/
-  #features-work .block ul li {
-    display: block;
-    width: 100%;
-  }
-  /*---------------------------------------------
-					Work close 
------------------------------------------------*/
-  /*=============================================*/
-  /*---------------------------------------------
-					contact Start 
------------------------------------------------*/
-  /*--
-	slider-contact Start 
---*/
-  #slider-contact {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-  #slider-contact .block {
-    padding-left: 0px;
-  }
-  #slider-contact .block h1 {
-    font-size: 20px;
-  }
-  #slider-contact .block p {
-    font-size: 11px;
-    line-height: 25px;
-  }
-  /*--
-	wrapper-contact Start 
---*/
-  #wrapper-contact .block {
-    padding-bottom: 50px;
-  }
-  #wrapper-contact .block .location p {
-    width: 100%;
-  }
-  #wrapper-contact .block .social-media-icon a i {
-    padding-top: 30px;
-  }
-  /*--
-	features-contact Start 
---*/
-  #features-contact .block ul li {
-    display: block;
-    width: 100%;
-  }
-  /*---------------------------------------------
-					contact close 
------------------------------------------------*/
-  /*--
 	footer Start 
 --*/
-  footer .footer-manu {
+  footer .footer-menu {
     display: none;
   }
 }
