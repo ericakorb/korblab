@@ -20,7 +20,7 @@ title: The Korb Lab at the University of Pennsylvania
 subtitle: "Neuroscience and epigenetics"
 # url: "http://luminousrubyist.github.io" # the base hostname & protocol for your site
 # baseurl: "/the/subpath/of/your/site" # Set this value to "" if you want your site to be root
-baseurl: "https://korblab.com"
+baseurl: "https://www.korblab.com"
 cover: "/assets/cover.png"
 logo: "/assets/logo.png"
 
