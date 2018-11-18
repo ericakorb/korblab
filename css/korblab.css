@@ -88,6 +88,10 @@ font header .navbar-default .navbar-nav li a:hover {
   line-height: 13px;
   padding-top: 8px;
 }
+
+header .penn-img li a:hover {
+  background-color: transparent;
+}
 /*---------------------------------------------
 					Index Start
 -----------------------------------------------*/
