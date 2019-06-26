@@ -17,33 +17,22 @@ permalink: /team/
 </section>
 <section id="section-content">
   <div class="container">
+    {% assign team_members = site.team_members | sort: 'order' %}
+    {% for member in team_members %}
     <div class="row member">
       <div class="col-md-3 col-sm-12">
         <div class="block">
-          <img src="{{ site.baseurl }}/img/erica.png" alt="Img">
+          <img src="{{ site.baseurl }}/img/{{ member.image }}" alt="Img">
         </div>
       </div><!-- .col-md-5 close -->
       <div class="col-md-7">
         <div class="block">
-        	<h2 class="member-name">Erica Korb, Ph.D.</h2>
-        	<h3>Principal Investigator</h3>
-        	<p>Erica Korb runs a lab in the Department of Genetics and is a member of the Penn Epigenetics Institute. Erica received her B.S. from Yale University in Molecular Biology and worked as a research assistant at both Yale and the NIH. She received her PhD from the University of California, San Francisco in neuroscience where she worked with Dr. Steve Finkbeiner. She then went on to the Rockefeller University for her postdoctoral training under Dr. C. David Allis. She has won several awards for her work over the years including the Klingenstein-Simons young investigator award, the Gladstone Institutes of Neurological Disease Graduate Student Award, the F31 and F32 Fellowship Awards and the NIH Pathway to Independence Award. Outside of the lab, Erica enjoys playing an eclectic mix of sports including cycling, ultimate Frisbee, and fencing.</p>
+          <h2 class="member-name">{{ member.name}}, {{ member.degree }}</h2>
+          <h3>{{ member.title }}</h3>
+          <p>{{ member.content | markdownify }}</p>
         </div>
       </div>
     </div>
-    <div class="row member">
-      <div class="col-md-3 col-sm-12">
-        <div class="block">
-          <img src="{{ site.baseurl }}/img/sam.jpg" alt="Img">
-        </div>
-      </div><!-- .col-md-5 close -->
-      <div class="col-md-7">
-        <div class="block">
-          <h2 class="member-name">Sam Thudium, B.S.</h2>
-          <h3>Research Assistant</h3>
-          <p>Sam received his B.S. from the University of California, San Diego in Biochemistry and Cell Biology and worked in the neurobiology department of The Scripps Research Institute as an undergrad. In lab, he is interested in exploring the mechanisms behind neurological disorders. Outside of lab, he enjoys all things outdoors, especially climbing and running.</p>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 </section>
