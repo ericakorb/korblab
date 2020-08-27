@@ -24,7 +24,7 @@ permalink: /team/
         <div class="block">
           <img src="{{ site.baseurl }}/img/{{ member.image }}" alt="Img">
         </div>
-      </div><!-- .col-md-5 close -->
+      </div>
       <div class="col-md-7">
         <div class="block">
           <h2 class="member-name">{{ member.name}}, {{ member.degree }}</h2>
@@ -36,3 +36,27 @@ permalink: /team/
     {% endfor %}
   </div>
 </section>
+<!-- <section id="section-content">
+  <header>
+    <h1>Alumni</h1>
+  </header>
+  <div class="container">
+    {% assign alumni = site.alumni | sort: 'order' %}
+    {% for member in alumni %}
+    <div class="row member">
+      <div class="col-md-3 col-sm-12">
+        <div class="block">
+          <img src="{{ site.baseurl }}/img/{{ member.image }}" alt="Img">
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="block">
+          <h2 class="member-name">{{ member.name}}, {{ member.degree }}</h2>
+          <h3>{{ member.title }}</h3>
+          <p>{{ member.content | markdownify }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section> -->
