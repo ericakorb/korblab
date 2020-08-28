@@ -27,7 +27,7 @@ permalink: /team/
       </div>
       <div class="col-md-7">
         <div class="block">
-          <h2 class="member-name">{{ member.name}}, {{ member.degree }}</h2>
+          <h2 class="member-name">{{ member.name}}{% if member.degree %}, {{ member.degree }}{% endif %}</h2>
           <h3>{{ member.title }}</h3>
           <p>{{ member.content | markdownify }}</p>
         </div>
@@ -35,12 +35,10 @@ permalink: /team/
     </div>
     {% endfor %}
   </div>
-</section>
-<!-- <section id="section-content">
-  <header>
-    <h1>Alumni</h1>
-  </header>
   <div class="container">
+    <header>
+      <h1>Alumni</h1>
+    </header>
     {% assign alumni = site.alumni | sort: 'order' %}
     {% for member in alumni %}
     <div class="row member">
@@ -51,7 +49,7 @@ permalink: /team/
       </div>
       <div class="col-md-7">
         <div class="block">
-          <h2 class="member-name">{{ member.name}}, {{ member.degree }}</h2>
+          <h2 class="member-name">{{ member.name}}{% if member.degree %}, {{ member.degree }}{% endif %}</h2>
           <h3>{{ member.title }}</h3>
           <p>{{ member.content | markdownify }}</p>
         </div>
@@ -59,4 +57,4 @@ permalink: /team/
     </div>
     {% endfor %}
   </div>
-</section> -->
+</section>
