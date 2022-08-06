@@ -22,7 +22,9 @@ permalink: /team/
     <div class="row member">
       <div class="col-md-3 col-sm-12">
         <div class="block">
+          {% if member.image %}
           <img src="{{ site.baseurl }}/img/{{ member.image }}" alt="Img">
+          {% endif %}
         </div>
       </div>
       <div class="col-md-7">
@@ -39,12 +41,14 @@ permalink: /team/
     <header>
       <h1>Alumni</h1>
     </header>
-    {% assign alumni = site.alumni | sort: 'order' %}
+    {% assign alumni = site.alumni | sort: 'order' | reverse %}
     {% for member in alumni %}
     <div class="row member">
       <div class="col-md-3 col-sm-12">
         <div class="block">
+          {% if member.image %}
           <img src="{{ site.baseurl }}/img/{{ member.image }}" alt="Img">
+          {% endif %}
         </div>
       </div>
       <div class="col-md-7">
