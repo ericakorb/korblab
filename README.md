@@ -10,7 +10,7 @@ It's not great that there's HTML for the bolding of Erica's name in the header m
 
 Maybe someday I'll figure out a better solution for this...someday...
 
-Use the special character &#58; to represent colons in titles
+Use the special character `&#58;` to represent colons in titles
 
 ### Notes on the order of items in collections
 
