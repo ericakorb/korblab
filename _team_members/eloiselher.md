@@ -1,7 +1,7 @@
 ---
 name: Éloïse L'Her
-degree: 
-title: Undergraduate
+degree: B.S.
+title: Research Assistant
 image: eloiselher.jpg
 order: 31
 ---
