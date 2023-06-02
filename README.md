@@ -32,3 +32,11 @@ Alumni are sorted in descending order, with the largest order index correspondin
 #### Publications
 
 Publications are ordered in descending order - the largest order index corresponding to the most recent publication.
+
+#### Development Workflow
+
+Update the `_config.yml` file: set `baseURL: ""`. When ready to build for prod, set this field back to `https://www.korblab.com`.
+
+Run using `jekyll serve`. Note that we can do this because there is no Gemfile so we don't have to use Bundler.
+
+To crop photos, you can set a fixed aspect ratio in GIMP to 23:32 (to reflect the pixel dimensions of the final photo). Then you crop to your selection, then scale the image down. Export the modified photo to the desired format.
