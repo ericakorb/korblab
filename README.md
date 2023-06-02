@@ -40,3 +40,13 @@ Update the `_config.yml` file: set `baseURL: ""`. When ready to build for prod, 
 Run using `jekyll serve`. Note that we can do this because there is no Gemfile so we don't have to use Bundler.
 
 To crop photos, you can set a fixed aspect ratio in GIMP to 23:32 (to reflect the pixel dimensions of the final photo). Then you crop to your selection, then scale the image down. Export the modified photo to the desired format.
+
+#### Deployment
+
+Change the `baseURL` field in `_config.yml` to `https://www.korblab.com`.
+
+Run `jekyll clean` to clear out all the old files with the blank baseURL.
+
+Run `jekyll build` to build the new files in `./_site`
+
+Copy everything under `./_site` to the repo `ericakorb.github.io` which is the repo that hosts the site.
