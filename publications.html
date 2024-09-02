@@ -23,16 +23,23 @@ permalink: /publications/
       <div class="col-md-2"></div>
       <div class="col-md-8 col-sm-12">
         <div class="block">
-          <p>
           {% assign publications = site.publications | sort: 'order' | reverse %}
           {% for publication in publications %}
           {% if publication.isdraft != true %}
           <p>
-            <ul>{{ publication.authors }} ({{ publication.year }}) {{ publication.title }}. <i>{{ publication.journalname }}</i>{% if publication.issue %}, {{ publication.issue }}:{{ publication.pages }}{% endif %}. {% if publication.pubmedid %}<a href="https://www.ncbi.nlm.nih.gov/pubmed/{{ publication.pubmedid }}">Available on PubMed</a>{% endif %}</ul>
+            <ul>{{ publication.authors }} ({{ publication.year }}) {{ publication.title }}. <i>{{ publication.journalname }}</i>{% if publication.issue %}, {{ publication.issue }}:{{ publication.pages }}{% endif %}. {% if publication.pubmedid %}<a href="https://www.ncbi.nlm.nih.gov/pubmed/{{ publication.pubmedid }}">Available on PubMed</a>{% endif %}
+            {% if publication.notes %}
+                <ul style="padding-left: 50px; list-style: circle">
+                <li>
+                {{ publication.notes }}
+                </li>
+            </ul>
+            {% endif %}
+            </ul>
           </p>
           {% endif %}
           {% endfor %}
-      </div><!-- .col-md-7 close -->
+      </div><!-- .col-md-8 close -->
       <div class="col-md-2 col-sm-12"></div>
     </div>
   </div>
