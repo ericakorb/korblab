@@ -259,6 +259,22 @@ header .penn-img li a:hover {
   vertical-align: middle;
 }
 
+.alumni th {
+  font-size: 20px;
+}
+
+.alumni p {
+  margin-bottom: 0;
+}
+
+.alumni td {
+  padding-bottom: 10px;
+}
+
+.alumni th {
+  padding-bottom: 10px;
+}
+
 /*--
   Feature Start
 --*/
