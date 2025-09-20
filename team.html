@@ -42,23 +42,21 @@ permalink: /team/
       <h1>Alumni</h1>
     </header>
     {% assign alumni = site.alumni | sort: 'order' | reverse %}
-    {% for member in alumni %}
-    <div class="row member">
-      <div class="col-md-3 col-sm-12">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 alumni">
         <div class="block">
-          {% if member.image %}
-          <img src="{{ site.baseurl }}/img/{{ member.image }}" alt="Img">
-          {% endif %}
-        </div>
-      </div>
-      <div class="col-md-7">
-        <div class="block">
-          <h2 class="member-name">{{ member.name}}{% if member.degree %}, {{ member.degree }}{% endif %}</h2>
-          <h3>{{ member.title }}</h3>
-          <p>{{ member.content | markdownify }}</p>
+          <table>
+            <tbody>
+              <tr><th style="width:20%">Name</th><th style="width:20%">Role</th><th style="width:15%">Departed</th><th>Post Korb Lab</th></tr>
+              {% for member in alumni %}
+              <tr>
+                <td>{{ member.name }}</td><td>{{ member.title }}</td><td>{{ member.departed }}</td><td>{{ member.content }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-    {% endfor %}
   </div>
 </section>
