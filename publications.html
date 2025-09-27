@@ -27,7 +27,7 @@ permalink: /publications/
           {% for publication in publications %}
           {% if publication.isdraft != true %}
           <p>
-            <ul>{{ publication.authors }} ({{ publication.year }}) {{ publication.title }}. <i>{{ publication.journalname }}</i>{% if publication.issue %}, {{ publication.issue }}:{{ publication.pages }}{% endif %}. {% if publication.pubmedid %}<a href="https://www.ncbi.nlm.nih.gov/pubmed/{{ publication.pubmedid }}">Available on PubMed</a>{% endif %}
+            <ul>{{ publication.authors }} ({{ publication.year }}) {{ publication.title }}. <i>{{ publication.journalname }}</i>{% if publication.issue %}, {{ publication.issue }}{% if publication.pages %}:{{ publication.pages }}{% endif %}{% endif %}. {% if publication.pubmedid %}<a href="https://www.ncbi.nlm.nih.gov/pubmed/{{ publication.pubmedid }}">Available on PubMed</a>{% endif %}
             {% if publication.notes %}
                 <ul style="padding-left: 50px; list-style: circle">
                 <li>
