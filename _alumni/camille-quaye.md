@@ -6,4 +6,4 @@ departed: 2025
 image: camillequaye.jpg
 order: 12
 ---
-Med school
+Gap year
