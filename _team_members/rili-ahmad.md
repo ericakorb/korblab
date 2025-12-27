@@ -1,6 +1,6 @@
 ---
 name: Rili Ahmad
-degree:
+degree: B.S.
 title: Research Specialist
 image: riliahmad.jpg
 order: 2
