@@ -1,0 +1,80 @@
+{
+  "rowLabel": "Gene",
+  "rowKey": "SYMBOL",
+  "organism": "Mus musculus - mm10",
+  "yAxisLabel": "CPM",
+  "groups": [
+    {
+      "id": "d0_female",
+      "label": "Day 0 · Female",
+      "color": "#e07b8a",
+      "columns": ["D0_F1", "D0_F2", "D0_F3", "D0_F4", "D0_F5"]
+    },
+    {
+      "id": "d0_male",
+      "label": "Day 0 · Male",
+      "color": "#7ba7e0",
+      "columns": ["D0_M1", "D0_M2", "D0_M3", "D0_M4", "D0_M5"]
+    },
+    {
+      "id": "d1_female",
+      "label": "Day 1 · Female",
+      "color": "#c45a6e",
+      "columns": ["D1_F1", "D1_F2", "D1_F3", "D1_F4", "D1_F5"]
+    },
+    {
+      "id": "d1_male",
+      "label": "Day 1 · Male",
+      "color": "#4a7dc4",
+      "columns": ["D1_M1", "D1_M2", "D1_M3", "D1_M4", "D1_M5"]
+    },
+    {
+      "id": "d5_female",
+      "label": "Day 5 · Female",
+      "color": "#9e3d52",
+      "columns": ["D5_F1", "D5_F2", "D5_F3", "D5_F4", "D5_F5"]
+    },
+    {
+      "id": "d5_male",
+      "label": "Day 5 · Male",
+      "color": "#2a5a9e",
+      "columns": ["D5_M1", "D5_M2", "D5_M3", "D5_M4", "D5_M5"]
+    },
+    {
+      "id": "d10_female",
+      "label": "Day 10 · Female",
+      "color": "#9e3d52",
+      "columns": ["D10_F1", "D10_F2", "D10_F3", "D10_F4", "D10_F5"]
+    },
+    {
+      "id": "d10_male",
+      "label": "Day 19 · Male",
+      "color": "#2a5a9e",
+      "columns": ["D10_M1", "D10_M2", "D10_M3", "D10_M4", "D10_M5"]
+    },
+    {
+      "id": "d15_female",
+      "label": "Day 15 · Female",
+      "color": "#9e3d52",
+      "columns": ["D15_F1", "D15_F2", "D15_F3", "D15_F4", "D15_F5"]
+    },
+    {
+      "id": "d15_male",
+      "label": "Day 15 · Male",
+      "color": "#2a5a9e",
+      "columns": ["D15_M1", "D15_M2", "D15_M3", "D15_M4", "D15_M5"]
+    },
+    {
+      "id": "d20_female",
+      "label": "Day 20 · Female",
+      "color": "#9e3d52",
+      "columns": ["D20_F1", "D20_F2", "D20_F3", "D20_F4", "D20_F5"]
+    },
+    {
+      "id": "d20_male",
+      "label": "Day 20 · Male",
+      "color": "#2a5a9e",
+      "columns": ["D20_M1", "D20_M2", "D20_M3", "D20_M4", "D20_M5"]
+    }
+  ]
+}

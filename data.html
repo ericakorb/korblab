@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Korb Lab</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="https://www.korblab.com/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://www.korblab.com/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://www.korblab.com/css/korblab.css" />
+<link rel="stylesheet" href="https://www.korblab.com/css/responsive.css" />
+<link rel="stylesheet" href="https://www.korblab.com/css/style.css" />
+<link rel="stylesheet" href="https://www.korblab.com/css/ionicons.min.css" />
+<link rel="stylesheet" href="https://www.korblab.com/css/animate.css" />
+<link rel="stylesheet" href="https://www.korblab.com/css/omiscope.css">
+
+<link rel="shortcut icon" href="https://www.korblab.com/img/favicon.ico" type="image/x-icon">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="https://www.korblab.com/js/bootstrap.min.js"></script>
+<script src="https://www.korblab.com/js/plugins.js"></script>
+<script src="https://www.korblab.com/js/min/waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+
+
+  </head>
+  <body>
+
+<noscript>
+  <div class="noscript-banner">
+    <strong>JavaScript is required to use this application.</strong>
+    Gene expression data is parsed and visualized entirely in your browser —
+    this requires JavaScript to be enabled. Please enable it in your browser settings and reload the page.
+  </div>
+</noscript>
+
+<div id="omi-loading-overlay">
+  <div class="omi-spinner"></div>
+  <div id="omi-loading-msg">Initializing…</div>
+</div>
+
+<div id="omi-error-banner" class="omi-hidden"></div>
+
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header navbar-left pull-left">
+              <a class="navbar-brand" href="https://www.korblab.com/">
+                <img src="https://www.korblab.com/img/logo.png" alt="Logo">
+              </a>
+            </div>
+            <div class="navbar-header navbar-right pull-right">
+              <ul class="nav pull-left penn-img">
+                <li class="pull-right"><a href="http://www.med.upenn.edu/"><img src="https://www.korblab.com/img/penn_med.png" class="header-img" alt="Penn Medicine"></a></li>
+              </ul>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#page-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="page-navbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://www.korblab.com/">Home</a></li>
+                <li><a href="https://www.korblab.com/research">Research</a></li>
+                <li><a href="https://www.korblab.com/publications">Publications</a></li>
+                <li><a href="https://www.korblab.com/team">Team</a></li>
+                <li><a href="https://www.korblab.com/contact">Contact</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header><!-- header close -->
+
+
+<div class="nav-mobile omi-hidden" id="nav-mobile">
+  <ul>
+    <li><a href="https://www.korblab.com/">Home</a></li>
+    <li><a href="https://www.korblab.com/research">Research</a></li>
+    <li><a href="https://www.korblab.com/publications">Publications</a></li>
+    <li><a href="https://www.korblab.com/team">Team</a></li>
+    <li><a href="https://www.korblab.com/contact">Contact</a></li>
+  </ul>
+</div>
+
+<main>
+
+  <!-- Dataset info -->
+  <div class="card" id="info-card">
+    <div class="card-title">Dataset</div>
+    <div class="dataset-row">
+      <div class="dataset-meta">
+        <select id="dataset-select">
+          <option value="" disabled selected>Select a dataset…</option>
+        </select>
+        <span id="dataset-desc"></span>
+        <span id="dataset-organism" class="dataset-organism" style="display:none"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gene search -->
+  <div class="card omi-hidden" id="search-section">
+    <div class="card-title">Gene Search <span id="search-organism" class="search-organism"></span></div>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input
+        id="gene-input"
+        type="text"
+        placeholder="Type a gene symbol — select multiple"
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <div id="search-results" class="omi-hidden"></div>
+    </div>
+    <div class="search-meta" id="gene-count"></div>
+
+    <!-- Selected gene tags -->
+    <div class="selected-genes-row">
+      <div id="selected-genes">
+        <span class="no-genes-hint">Search and select genes above</span>
+      </div>
+      <button class="btn btn-ghost btn-sm omi-hidden" id="clear-genes">Clear all</button>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="omi-hidden" id="chart-section">
+    <div id="plots-container" class="plots-grid"></div>
+  </div>
+
+  <!-- Downloads -->
+  <div class="card omi-hidden" id="download-section">
+    <div class="card-title">Downloads</div>
+    <div class="download-grid">
+      <button class="btn btn-secondary" id="dl-csv">⬇ Full Dataset (CSV)</button>
+      <button class="btn btn-secondary" id="dl-gene-csv" disabled>⬇ Selected Genes (CSV)</button>
+      <button class="btn btn-secondary" id="dl-all-png" disabled>⬇ All Plots (PNG)</button>
+      <button class="btn btn-secondary" id="dl-all-svg" disabled>⬇ All Plots (SVG)</button>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="footer-menu">
+        </div>
+        <p>Copyright &copy; Design by <a href="http://www.themefisher.com">Themefisher</a>. All rights reserved.<br/>
+        Logo by <a href="https://katerinaleslie.com/">Katerina Leslie Design Studio</a>.
+    	</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://www.korblab.com/js/omiscope.js"></script>
+<script data-goatcounter="https://korblab.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<noscript>
+    <img src="https://korblab.goatcounter.com/count?p=/">
+</noscript>
+
+    </body>
+</html>
