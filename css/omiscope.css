@@ -1,0 +1,410 @@
+/* ═══════════════════════════════════════════════════════════
+   OmiScope — self-contained styles
+   Drop omiscope.css + omiscope.js into any korblab page
+   ═══════════════════════════════════════════════════════════ */
+
+@import url(https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500&family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap);
+
+/* ── Variables ────────────────────────────────────────────── */
+:root {
+  --omi-ink:       #1a1a2e;
+  --omi-ink-soft:  #4a4a6a;
+  --omi-ink-faint: #9090b0;
+  --omi-bg:        #f7f7fb;
+  --omi-surface:   #ffffff;
+  --omi-border:    #e2e2ee;
+  --omi-accent:    #3a5bba;
+  --omi-accent-lt: #eef1fc;
+  --omi-red:       #c04060;
+  --omi-radius:    10px;
+  --omi-shadow:    0 2px 12px rgba(30,30,60,0.08);
+  --omi-shadow-lg: 0 8px 32px rgba(30,30,60,0.13);
+  --omi-font-head: 'DM Serif Display', Georgia, serif;
+  --omi-font-body: 'DM Sans', system-ui, sans-serif;
+  --omi-font-mono: 'DM Mono', 'Fira Mono', monospace;
+}
+
+/* ── Utilities ────────────────────────────────────────────── */
+.omi-hidden { display: none !important; }
+
+/* ── Noscript ─────────────────────────────────────────────── */
+.omi-noscript-banner {
+  background: #fff8e6;
+  border-bottom: 2px solid #e0a020;
+  color: #6a4a00;
+  padding: 1rem 1.5rem;
+  font-size: 15px;
+  text-align: center;
+  font-family: var(--omi-font-body);
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: var(--omi-font-body);
+  font-size: 17px;
+  color: var(--omi-ink);
+  background: var(--omi-bg);
+  min-height: calc(100vh - 93px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  main { padding: 1rem; }
+}
+
+/* ── Loading overlay ──────────────────────────────────────── */
+#omi-loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(247,247,251,0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+
+.omi-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--omi-border);
+  border-top-color: var(--omi-accent);
+  border-radius: 50%;
+  animation: omi-spin 0.75s linear infinite;
+}
+
+@keyframes omi-spin { to { transform: rotate(360deg); } }
+
+#omi-loading-msg {
+  font-family: var(--omi-font-mono);
+  font-size: 14px;
+  color: var(--omi-ink-soft);
+}
+
+/* ── Error banner ─────────────────────────────────────────── */
+#omi-error-banner {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff0f3;
+  border: 1.5px solid var(--omi-red);
+  color: var(--omi-red);
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 15px;
+  font-family: var(--omi-font-body);
+  box-shadow: var(--omi-shadow-lg);
+  z-index: 500;
+  max-width: 520px;
+  text-align: center;
+}
+
+/* ── Cards ────────────────────────────────────────────────── */
+.card {
+  background: var(--omi-surface);
+  border: 1px solid var(--omi-border);
+  border-radius: var(--omi-radius);
+  box-shadow: var(--omi-shadow);
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-family: var(--omi-font-head);
+  color: var(--omi-ink-soft);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn {
+  font-family: var(--omi-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.45rem 1rem;
+  border-radius: 7px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: background 0.13s, border-color 0.13s, opacity 0.13s;
+  white-space: nowrap;
+}
+.btn:disabled { opacity: 0.4; cursor: default; }
+
+.btn-primary {
+  background: var(--omi-accent);
+  color: white;
+  border-color: var(--omi-accent);
+}
+.btn-primary:hover:not(:disabled) { background: #2a48a0; }
+
+.btn-secondary {
+  background: var(--omi-surface);
+  color: var(--omi-ink);
+  border-color: var(--omi-border);
+}
+.btn-secondary:hover:not(:disabled) { background: var(--omi-bg); border-color: var(--omi-accent); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--omi-accent);
+  border-color: transparent;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.btn-ghost:hover { background: var(--omi-accent-lt); }
+
+.btn-sm {
+  font-size: 13px;
+  padding: 0.3rem 0.7rem;
+}
+
+/* ── Form controls ────────────────────────────────────────── */
+select, input[type=text] {
+  font-family: var(--omi-font-body);
+  font-size: 16px;
+  border: 1.5px solid var(--omi-border);
+  border-radius: 7px;
+  padding: 0.5rem 0.75rem;
+  background: var(--omi-bg);
+  color: var(--omi-ink);
+  outline: none;
+  transition: border-color 0.15s;
+}
+select:focus, input[type=text]:focus {
+  border-color: var(--omi-accent);
+  background: var(--omi-surface);
+}
+select { cursor: pointer; }
+
+/* ── Dataset selector ─────────────────────────────────────── */
+.dataset-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.dataset-meta { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 0.35rem; }
+.dataset-meta select { width: 100%; }
+.dataset-meta span {
+  font-size: 14px;
+  color: var(--omi-ink-faint);
+}
+.dataset-organism {
+  font-style: italic;
+}
+
+/* ── Gene search ──────────────────────────────────────────── */
+.search-organism {
+  font-family: var(--omi-font-body);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--omi-ink-faint);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.search-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.search-wrap input {
+  width: 100%;
+  padding-left: 2.2rem;
+  font-size: 17px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--omi-ink-faint);
+  pointer-events: none;
+  font-size: 15px;
+}
+
+#search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--omi-surface);
+  border: 1.5px solid var(--omi-border);
+  border-radius: 8px;
+  box-shadow: var(--omi-shadow-lg);
+  z-index: 200;
+  overflow: hidden;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.result-item {
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  font-family: var(--omi-font-mono);
+  font-size: 15px;
+  transition: background 0.1s;
+}
+.result-item:hover { background: var(--omi-accent-lt); }
+.result-item mark {
+  background: none;
+  color: var(--omi-accent);
+  font-weight: 700;
+}
+.no-results {
+  padding: 0.7rem 1rem;
+  color: var(--omi-ink-faint);
+  font-size: 14px;
+}
+
+.search-meta {
+  margin-top: 0.5rem;
+  font-size: 13px;
+  color: var(--omi-ink-faint);
+  font-family: var(--omi-font-mono);
+}
+
+/* ── Selected gene tags ───────────────────────────────────── */
+.selected-genes-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  flex-wrap: wrap;
+}
+
+#selected-genes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex: 1;
+  min-height: 28px;
+  align-items: center;
+}
+
+.no-genes-hint {
+  font-size: 14px;
+  color: var(--omi-ink-faint);
+  font-style: italic;
+}
+
+.gene-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--omi-accent-lt);
+  border: 1.5px solid var(--omi-accent);
+  color: var(--omi-accent);
+  font-family: var(--omi-font-mono);
+  font-size: 14px;
+  padding: 0.2rem 0.35rem 0.2rem 0.6rem;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.gene-tag-remove {
+  background: none;
+  border: none;
+  color: var(--omi-accent);
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+  padding: 0 0.1rem;
+  opacity: 0.6;
+  transition: opacity 0.1s;
+}
+.gene-tag-remove:hover { opacity: 1; }
+
+/* ── Search result states ─────────────────────────────────── */
+.result-item.already-selected {
+  background: var(--omi-accent-lt);
+  color: var(--omi-accent);
+}
+.result-item.already-selected:hover { background: #dce4f8; }
+
+.result-check {
+  margin-left: auto;
+  font-size: 14px;
+  color: var(--omi-accent);
+}
+
+/* ── Plots grid ───────────────────────────────────────────── */
+.plots-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.plots-grid.single {
+  grid-template-columns: 1fr;
+}
+
+.plots-grid.multi {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 750px) {
+  .plots-grid.multi { grid-template-columns: 1fr; }
+}
+
+.plot-wrapper {
+  background: var(--omi-surface);
+  border: 1px solid var(--omi-border);
+  border-radius: var(--omi-radius);
+  box-shadow: var(--omi-shadow);
+  padding: 1rem 1rem 0.5rem;
+  overflow: hidden;
+}
+
+.plot-canvas {
+  width: 100%;
+  min-height: 440px;
+}
+
+/* ── Downloads ────────────────────────────────────────────── */
+.download-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+/* ── Y-axis control ───────────────────────────────────────── */
+.yaxis-control-card {
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 1rem;
+}
+
+.yaxis-control-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.yaxis-control-row input {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ── Plotly notifier ──────────────────────────────────────── */
+.plotly-notifier {
+  position: fixed !important;
+  bottom: 2rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: auto !important;
+  right: auto !important;
+}
+.plotly-notifier:empty { display: none !important; }
