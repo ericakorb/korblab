@@ -43,6 +43,8 @@ const App = (() => {
     state.activeDataset = meta;
     state.activeGenes = [];
     state.data = null;
+    const dlRow = $('dl-csv-row');
+    if (dlRow) dlRow.classList.add('omi-hidden');
 
     setLoading(true, 'Loading configuration…');
 
@@ -80,6 +82,8 @@ const App = (() => {
         processCSV(results.data, state.config.rowKey);
         setLoading(false);
         updateDatasetInfo();
+        const dlRow = $('dl-csv-row');
+        if (dlRow) dlRow.classList.remove('omi-hidden');
         $('search-section').classList.remove('omi-hidden');
         $('gene-input').focus();
       },
@@ -176,10 +180,8 @@ const App = (() => {
       const highlighted = matchIdx >= 0
         ? g.slice(0, matchIdx) + `<mark>${g.slice(matchIdx, matchIdx + lower.length)}</mark>` + g.slice(matchIdx + lower.length)
         : g;
-      return `<div class="result-item ${already ? 'already-selected' : ''}" data-gene="${escHtml(g)}">
-        ${highlighted}
-        ${already ? '<span class="result-check">\u2713</span>' : ''}
-      </div>`;
+      const check = already ? '<span class="result-check">\u2713</span>' : '';
+      return `<div class="result-item ${already ? 'already-selected' : ''}" data-gene="${escHtml(g)}">${highlighted}${check}</div>`;
     }).join('');
     resultsEl.classList.remove('omi-hidden');
 
@@ -453,12 +455,18 @@ const App = (() => {
     $('dataset-desc').textContent = state.activeDataset.description || '';
     const orgEl = $('dataset-organism');
     const searchOrgEl = $('search-organism');
+    const citeEl = $('dataset-citation');
     if (orgEl) {
       orgEl.textContent = state.organism || '';
       orgEl.style.display = state.organism ? '' : 'none';
     }
     if (searchOrgEl) {
       searchOrgEl.textContent = state.organism ? `(${state.organism})` : '';
+    }
+    if (citeEl) {
+      const cite = state.activeDataset.citation;
+      citeEl.style.display = cite ? '' : 'none';
+      citeEl.innerHTML = cite ? `<span class="dataset-citation-label">Citation:</span> ${escHtml(cite)}` : '';
     }
   }
 

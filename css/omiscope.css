@@ -204,6 +204,17 @@ select { cursor: pointer; }
   font-style: italic;
 }
 
+.dataset-citation {
+  font-size: 13px;
+  color: var(--omi-ink-faint);
+  line-height: 1.4;
+}
+
+.dataset-citation-label {
+  font-weight: 600;
+  color: var(--omi-ink-soft);
+}
+
 /* ── Gene search ──────────────────────────────────────────── */
 .search-organism {
   font-family: var(--omi-font-body);
@@ -249,6 +260,8 @@ select { cursor: pointer; }
   overflow: hidden;
   max-height: 320px;
   overflow-y: auto;
+  letter-spacing: 0;
+  word-spacing: 0;
 }
 
 .result-item {
@@ -256,6 +269,8 @@ select { cursor: pointer; }
   cursor: pointer;
   font-family: var(--omi-font-mono);
   font-size: 15px;
+  letter-spacing: 0;
+  word-spacing: 0;
   transition: background 0.1s;
 }
 .result-item:hover { background: var(--omi-accent-lt); }
@@ -263,6 +278,7 @@ select { cursor: pointer; }
   background: none;
   color: var(--omi-accent);
   font-weight: 700;
+  padding: 0;
 }
 .no-results {
   padding: 0.7rem 1rem;
