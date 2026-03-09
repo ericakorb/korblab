@@ -282,6 +282,7 @@ select { cursor: pointer; }
 .result-item .result-match {
   color: var(--omi-accent);
   font-weight: 700;
+  padding: 0;
 }
 .no-results {
   padding: 0.7rem 1rem;
