@@ -48,7 +48,7 @@
     },
     {
       "id": "d10_male",
-      "label": "Day 19 · Male",
+      "label": "Day 10 · Male",
       "color": "#2a5a9e",
       "columns": ["D10_M1", "D10_M2", "D10_M3", "D10_M4", "D10_M5"]
     },
