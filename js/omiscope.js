@@ -43,6 +43,8 @@ const App = (() => {
     state.activeDataset = meta;
     state.activeGenes = [];
     state.data = null;
+    const dlRow = $('dl-csv-row');
+    if (dlRow) dlRow.classList.add('omi-hidden');
 
     setLoading(true, 'Loading configuration…');
 
@@ -80,6 +82,8 @@ const App = (() => {
         processCSV(results.data, state.config.rowKey);
         setLoading(false);
         updateDatasetInfo();
+        const dlRow = $('dl-csv-row');
+        if (dlRow) dlRow.classList.remove('omi-hidden');
         $('search-section').classList.remove('omi-hidden');
         $('gene-input').focus();
       },
@@ -124,11 +128,29 @@ const App = (() => {
     });
 
     geneInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        const first = $('search-results').querySelector('.result-item:not(.already-selected)');
-        if (first) first.click();
+      const resultsEl = $('search-results');
+      const items = [...resultsEl.querySelectorAll('.result-item')];
+      const current = resultsEl.querySelector('.result-item.focused');
+      const currentIdx = current ? items.indexOf(current) : -1;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const next = items[currentIdx + 1] || items[0];
+        if (next) setFocusedItem(items, next);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prev = items[currentIdx - 1] || items[items.length - 1];
+        if (prev) setFocusedItem(items, prev);
+      } else if (e.key === 'Enter') {
+        if (current) {
+          current.click();
+        } else {
+          const first = resultsEl.querySelector('.result-item:not(.already-selected)');
+          if (first) first.click();
+        }
+      } else if (e.key === 'Escape') {
+        clearSearch();
       }
-      if (e.key === 'Escape') clearSearch();
     });
 
     $('dl-csv').addEventListener('click', downloadFullCSV);
@@ -166,6 +188,7 @@ const App = (() => {
     if (matches.length === 0) {
       resultsEl.innerHTML = '<div class="no-results">No genes found</div>';
       resultsEl.classList.remove('omi-hidden');
+      $('gene-input').setAttribute('aria-expanded', 'true');
       return;
     }
 
@@ -174,16 +197,19 @@ const App = (() => {
       const already = selectedSet.has(g);
       const matchIdx = g.toLowerCase().indexOf(lower);
       const highlighted = matchIdx >= 0
-        ? g.slice(0, matchIdx) + `<mark>${g.slice(matchIdx, matchIdx + lower.length)}</mark>` + g.slice(matchIdx + lower.length)
+        ? g.slice(0, matchIdx) + `<span class="result-match">${g.slice(matchIdx, matchIdx + lower.length)}</span>` + g.slice(matchIdx + lower.length)
         : g;
-      return `<div class="result-item ${already ? 'already-selected' : ''}" data-gene="${escHtml(g)}">
-        ${highlighted}
-        ${already ? '<span class="result-check">\u2713</span>' : ''}
-      </div>`;
+      const check = already ? '<span class="result-check" aria-hidden="true">\u2713</span>' : '';
+      const ariaSelected = already ? 'true' : 'false';
+      const itemId = `result-${escHtml(g).replace(/[^a-zA-Z0-9_-]/g, '_')}`;
+      return `<div class="result-item ${already ? 'already-selected' : ''}" id="${itemId}" role="option" aria-selected="${ariaSelected}" data-gene="${escHtml(g)}">${highlighted}${check}</div>`;
     }).join('');
     resultsEl.classList.remove('omi-hidden');
+    $('gene-input').setAttribute('aria-expanded', 'true');
 
-    resultsEl.querySelectorAll('.result-item').forEach(el => {
+    const allItems = [...resultsEl.querySelectorAll('.result-item')];
+    allItems.forEach(el => {
+      el.addEventListener('mousemove', () => setFocusedItem(allItems, el));
       el.addEventListener('click', () => {
         const gene = el.dataset.gene;
         if (state.activeGenes.includes(gene)) {
@@ -218,9 +244,22 @@ const App = (() => {
     }
   }
 
+  function setFocusedItem(items, target) {
+    items.forEach(el => {
+      el.classList.remove('focused');
+      el.setAttribute('aria-current', 'false');
+    });
+    target.classList.add('focused');
+    target.setAttribute('aria-current', 'true');
+    target.scrollIntoView({ block: 'nearest' });
+    $('gene-input').setAttribute('aria-activedescendant', target.id);
+  }
+
   function clearSearch() {
     $('search-results').innerHTML = '';
     $('search-results').classList.add('omi-hidden');
+    $('gene-input').setAttribute('aria-expanded', 'false');
+    $('gene-input').removeAttribute('aria-activedescendant');
   }
 
   // ── Selected gene tags ─────────────────────────────────────
@@ -453,12 +492,18 @@ const App = (() => {
     $('dataset-desc').textContent = state.activeDataset.description || '';
     const orgEl = $('dataset-organism');
     const searchOrgEl = $('search-organism');
+    const citeEl = $('dataset-citation');
     if (orgEl) {
       orgEl.textContent = state.organism || '';
       orgEl.style.display = state.organism ? '' : 'none';
     }
     if (searchOrgEl) {
       searchOrgEl.textContent = state.organism ? `(${state.organism})` : '';
+    }
+    if (citeEl) {
+      const cite = state.activeDataset.citation;
+      citeEl.style.display = cite ? '' : 'none';
+      citeEl.innerHTML = cite ? `<span class="dataset-citation-label">Citation:</span> ${escHtml(cite)}` : '';
     }
   }
 
@@ -478,6 +523,8 @@ const App = (() => {
     if (overlay) overlay.classList.toggle('omi-hidden', !on);
     const msgEl = $('omi-loading-msg');
     if (msg && msgEl) msgEl.textContent = msg;
+    const main = document.querySelector('main');
+    if (main) main.setAttribute('aria-busy', on ? 'true' : 'false');
   }
 
   function showError(msg) {
