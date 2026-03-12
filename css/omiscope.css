@@ -26,6 +26,17 @@
 
 /* ── Utilities ────────────────────────────────────────────── */
 .omi-hidden { display: none !important; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* ── Noscript ─────────────────────────────────────────────── */
 .omi-noscript-banner {
@@ -282,7 +293,6 @@ select { cursor: pointer; }
 .result-item .result-match {
   color: var(--omi-accent);
   font-weight: 700;
-  padding: 0;
 }
 .no-results {
   padding: 0.7rem 1rem;

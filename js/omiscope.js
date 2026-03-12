@@ -148,7 +148,7 @@ const App = (() => {
           const first = resultsEl.querySelector('.result-item:not(.already-selected)');
           if (first) first.click();
         }
-      } else if (e.key === 'Escape') {
+      } else if (e.key === 'Tab' || e.key === 'Escape') {
         clearSearch();
       }
     });
@@ -274,12 +274,9 @@ const App = (() => {
     }
 
     clearBtn.classList.remove('omi-hidden');
-    container.innerHTML = state.activeGenes.map(g => `
-      <span class="gene-tag">
-        ${escHtml(g)}
-        <button class="gene-tag-remove" data-gene="${escHtml(g)}" title="Remove">&times;</button>
-      </span>
-    `).join('');
+    container.innerHTML = state.activeGenes.map(g =>
+      `<span class="gene-tag">${escHtml(g)}<button class="gene-tag-remove" data-gene="${escHtml(g)}" aria-label="Remove ${escHtml(g)}">&times;</button></span>`
+    ).join('');
 
     container.querySelectorAll('.gene-tag-remove').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -300,16 +297,21 @@ const App = (() => {
     container.className = state.activeGenes.length === 1 ? 'plots-grid single' : 'plots-grid multi';
 
     state.activeGenes.forEach(symbol => {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'plot-wrapper';
+      const figure = document.createElement('figure');
+      figure.className = 'plot-wrapper';
+
+      const caption = document.createElement('figcaption');
+      caption.className = 'plot-caption visually-hidden';
+      caption.textContent = `Bar chart of ${symbol} data in ${state.yAxisLabel}`;
 
       const plotDiv = document.createElement('div');
       plotDiv.className = 'plot-canvas';
       // Sanitize symbol for use as DOM id
       plotDiv.id = `plot-${symbol.replace(/[^a-zA-Z0-9_-]/g, '_')}`;
 
-      wrapper.appendChild(plotDiv);
-      container.appendChild(wrapper);
+      figure.appendChild(caption);
+      figure.appendChild(plotDiv);
+      container.appendChild(figure);
 
       renderPlot(symbol, plotDiv.id);
     });
