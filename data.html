@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Korb Lab</title>
-<meta name="description" content="">
+<meta name="description" content="Interactive gene expression data explorer for the Korb Lab at the Perelman School of Medicine, University of Pennsylvania.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -41,23 +41,23 @@
   </div>
 </noscript>
 
-<div id="omi-loading-overlay">
+<div id="omi-loading-overlay" role="status" aria-label="Loading">
   <div class="omi-spinner"></div>
   <div id="omi-loading-msg">Initializing…</div>
 </div>
 
-<div id="omi-error-banner" class="omi-hidden"></div>
+<div id="omi-error-banner" class="omi-hidden" role="alert" aria-live="assertive"></div>
 
 <header>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" aria-label="Main navigation">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header navbar-left pull-left">
               <a class="navbar-brand" href="https://www.korblab.com/">
-                <img src="https://www.korblab.com/img/logo.png" alt="Logo">
+                <img src="https://www.korblab.com/img/logo.png" alt="Korb Lab">
               </a>
             </div>
             <div class="navbar-header navbar-right pull-right">
@@ -89,7 +89,7 @@
 </header><!-- header close -->
 
 
-<div class="nav-mobile omi-hidden" id="nav-mobile">
+<nav class="nav-mobile omi-hidden" id="nav-mobile" aria-label="Mobile navigation">
   <ul>
     <li><a href="https://www.korblab.com/">Home</a></li>
     <li><a href="https://www.korblab.com/research">Research</a></li>
@@ -97,23 +97,23 @@
     <li><a href="https://www.korblab.com/team">Team</a></li>
     <li><a href="https://www.korblab.com/contact">Contact</a></li>
   </ul>
-</div>
+</nav>
 
 <main>
 
   <!-- Dataset info -->
   <div class="card" id="info-card">
-    <div class="card-title">Dataset</div>
+    <h2 class="card-title">Dataset</h2>
     <div class="dataset-row">
       <div class="dataset-meta">
-        <select id="dataset-select">
+        <select id="dataset-select" aria-label="Select a dataset">
           <option value="" disabled selected>Select a dataset…</option>
         </select>
         <span id="dataset-desc"></span>
         <span id="dataset-organism" class="dataset-organism" style="display:none"></span>
         <span id="dataset-citation" class="dataset-citation" style="display:none"></span>
         <div id="dl-csv-row" class="omi-hidden">
-          <button class="btn btn-secondary btn-sm" id="dl-csv">⬇ Download Full Dataset (CSV)</button>
+          <button class="btn btn-secondary btn-sm" id="dl-csv"><span aria-hidden="true">⬇</span> Download Full Dataset (CSV)</button>
         </div>
       </div>
     </div>
@@ -121,23 +121,27 @@
 
   <!-- Gene search -->
   <div class="card omi-hidden" id="search-section">
-    <div class="card-title">Gene Search <span id="search-organism" class="search-organism"></span></div>
+    <h2 class="card-title">Gene Search <span id="search-organism" class="search-organism"></span></h2>
     <div class="search-wrap">
-      <span class="search-icon">⌕</span>
+      <span class="search-icon" aria-hidden="true">⌕</span>
       <input
         id="gene-input"
         type="text"
         placeholder="Type a gene symbol — select multiple"
         autocomplete="off"
         spellcheck="false"
+        aria-label="Search gene symbols"
+        aria-autocomplete="list"
+        aria-controls="search-results"
+        aria-expanded="false"
       >
-      <div id="search-results" class="omi-hidden"></div>
+      <div id="search-results" class="omi-hidden" role="listbox" aria-label="Gene search results"></div>
     </div>
-    <div class="search-meta" id="gene-count"></div>
+    <div class="search-meta" id="gene-count" aria-live="polite"></div>
 
     <!-- Selected gene tags -->
     <div class="selected-genes-row">
-      <div id="selected-genes">
+      <div id="selected-genes" aria-label="Selected genes" aria-live="polite">
         <span class="no-genes-hint">Search and select genes above</span>
       </div>
       <button class="btn btn-ghost btn-sm omi-hidden" id="clear-genes">Clear all</button>
@@ -151,17 +155,17 @@
 
   <!-- Downloads -->
   <div class="card omi-hidden" id="download-section">
-    <div class="card-title">Downloads</div>
+    <h2 class="card-title">Downloads</h2>
     <div class="download-grid">
-      <button class="btn btn-secondary" id="dl-gene-csv" disabled>⬇ Selected Genes (CSV)</button>
-      <button class="btn btn-secondary" id="dl-all-png" disabled>⬇ All Plots (PNG)</button>
-      <button class="btn btn-secondary" id="dl-all-svg" disabled>⬇ All Plots (SVG)</button>
+      <button class="btn btn-secondary" id="dl-gene-csv" disabled><span aria-hidden="true">⬇</span> Selected Genes (CSV)</button>
+      <button class="btn btn-secondary" id="dl-all-png" disabled><span aria-hidden="true">⬇</span> All Plots (PNG)</button>
+      <button class="btn btn-secondary" id="dl-all-svg" disabled><span aria-hidden="true">⬇</span> All Plots (SVG)</button>
     </div>
   </div>
 
 </main>
 
-<footer>
+    <footer>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
