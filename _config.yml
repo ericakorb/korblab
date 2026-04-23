@@ -42,3 +42,6 @@ collections:
   - team_members
   - alumni
   - publications
+
+keep_files:
+  - datasets/

@@ -3,6 +3,7 @@
     "id": "primary-mouse-cultured-neuron-timecourse",
     "name": "Primary Mouse Cultured Neuron Timecourse",
     "description": "Neurons derived from male and female E16.5 cortical embryos for RNA-sequencing. Time points include 0 days in vitro (prior to plating), and 1, 5, 10, 15, and 20 days in vitro after plating. Y axis indicates normalized counts per million (CPM).",
+    "citation": "Paranjapye, et. al., Developmental transcriptomic analysis of cultured primary mouse cortical neurons reveals sex-specific expression of neuropeptides <a href=\"https://www.biorxiv.org/content/10.64898/2026.04.21.719935v1\">BIORXIV/2026/719935</a>",
     "file": "datasets/Paranjapye_2026_Mouse_Neuron_Timecourse.csv",
     "config": "datasets/Paranjapye_2026_Mouse_Neuron_Timecourse.json"
   }

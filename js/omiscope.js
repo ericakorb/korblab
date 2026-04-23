@@ -505,7 +505,7 @@ const App = (() => {
     if (citeEl) {
       const cite = state.activeDataset.citation;
       citeEl.style.display = cite ? '' : 'none';
-      citeEl.innerHTML = cite ? `<span class="dataset-citation-label">Citation:</span> ${escHtml(cite)}` : '';
+      citeEl.innerHTML = cite ? `<span class="dataset-citation-label">Citation:</span> ${cite}` : '';
     }
   }
 
