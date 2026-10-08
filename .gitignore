@@ -1,0 +1,24 @@
+# Jekyll build output and caches
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler
+.bundle/
+vendor/bundle/
+
+# Node / Playwright (see tests/README.md)
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
